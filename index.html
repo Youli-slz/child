@@ -290,12 +290,17 @@
    }
       //改变tab页方法
       function changeTab(tabCon_num) {
-        for (i = 0; i <= 1; i++) {
-          document.getElementById("tabCon_" + i).style.display = "none"; //将所有的层都隐藏 
-          document.getElementById("tab_" + i).style.color = "#000";
+        if(tabCon_num == 0){
+          document.getElementById("tabCon_0").style.display = "block";
+          document.getElementById("tabCon_1").style.display = "none";
+          document.getElementById("tab_0").style.color = '#ff6767';
+          document.getElementById("tab_1").style.color = '#000';
+        } else {
+          document.getElementById("tabCon_0").style.display = "none";
+          document.getElementById("tabCon_1").style.display = "block";
+          document.getElementById("tab_0").style.color = '#000';
+          document.getElementById("tab_1").style.color = '#ff6767';        
         }
-        document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层 
-        document.getElementById("tab_" + tabCon_num).style.color = "#ff6767";
       }
 
   function getMore() {
@@ -364,12 +369,13 @@
    }
 
 
-   window.onload=function(){
-      this.getDate();
-      setTimeout(function() {
-        this.disp_confirm();
-      },30000)
-   }
+   $(function() {
+     this.getDate();
+    setTimeout(function() {
+      this.disp_confirm();
+    },30000)
+
+   })
 
   </script>
 </body>
