@@ -277,12 +277,12 @@
   var ismore = 0;
    console.log(window.innerWidth);
    function toQRcode () {
-     window.location.href="http://sharex.dingjiantaoke.cn/le/show/21"
+     self.location="http://sharex.dingjiantaoke.cn/le/show/21"
    }
 
    function disp_confirm() {
      weui.alert('请添加课程老师进入正式班级免费学习哦',function(){
-         window.location.href="http://sharex.dingjiantaoke.cn/le/show/21" 
+         self.location="http://sharex.dingjiantaoke.cn/le/show/21" 
      });
      
    }
@@ -369,14 +369,14 @@
      }
    }
 
-   $(function() {
+   window.onload=function(){
      this.getDate();
       document.getElementById("tabCon_" + 1).style.display = "none";
     // setTimeout(function() {
     //   this.disp_confirm();
     // },30000)
 
-   })
+   }
 
   </script>
 </body>
