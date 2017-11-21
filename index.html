@@ -146,7 +146,51 @@
        border-right: 1px solid #949494;
        color:#ff6767;
     }
-
+    #tabCon_1{
+      font-size: 13px;
+      margin-left:5px;
+    }
+    #desc_0{
+      background-color: yellow;
+      margin-bottom:2px;
+      color: blue;
+    }
+    #red{
+      color: red;
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+     p{
+      margin-bottom: 5px;
+    }
+    .moreBtn{
+      width:100px;
+      border: 2px solid #ff6767;
+      border-radius: 10px;
+      display: flex;
+      display: -webkit-box;
+      display: -webkit-flex;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+       align-items: center;
+    }
+    .BTN{
+      width: 100%;
+      display: flex;
+      display: -webkit-box;
+      display: -webkit-flex;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+       align-items: center;
+    }
 
   </style>
 </head>
@@ -174,7 +218,7 @@
     <div class="info">
       <div class="info_title">
         <div class="btn-c" id="tab_0" onclick="changeTab(0)">课程介绍</div>
-        <div class="btn-c" id="tab_1" onclick="changeTab(1)">林漪澜</div>
+        <div class="btn-c" id="tab_1" onclick="changeTab(1)">内容</div>
       </div>
       <div id="tabCon">
               <div id="tabCon_0"><pre>也许现在家长们多数认为
@@ -204,7 +248,19 @@
 让孩子健康成长！</pre></div>
 
 <div id="tabCon_1">
-  零一页
+  <div>
+<div id="desc_0">要提醒：有朋友抱怨，手机页面跳转，页面找不到，建议先加<div id="red">微信: 392413327</div><div id="red">(长按复制加好友)，收藏后可避免页面丢失！</div></div>
+<p>注意：如果，你家宝宝正在经历“食欲不振，消化不良，厌食不吃饭，积食等折磨”恭喜你来对地方了，接下来的内容，你绝对不该错过… ↓↓  </p>
+
+<p style="margin-left:5px;">废话不多说，先给大家讲下我的经历</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;女儿是第一胎，我和老公都没有照顾孩子经验，在孩子饮食上也从来没有刻意限制过，自以为这样很好，殊不知为孩子健康埋下了隐患。上个月礼拜天去哥哥家为侄子过生日，带着孩子去吃饭聚餐去了。嫂嫂很热情给做了好大一桌子菜，鸡，鸭，鱼，肉，海鲜样样都有，有几道素的还都有放猪肉配菜，再加上美味的奶油蛋糕这可馋坏了小朋友们，包括我家这个还不到三岁的小宝贝…（现在的肉都是激素催的，再加上鱼生火肉生痰在这里我建议家长们平时尽量少给孩子吃大鱼大肉之类的）走亲戚嘛！孩子也多，大家都比赛看哪个孩子吃的快，吃的多，我家宝贝也不例外，这不痛快了小嘴和味觉却害了宝贝的身体和脾胃。</p>
+
+  </div>
+  <div id="more_content"></div>
+  <div class="BTN" id="btn">
+    <div class="moreBtn" onclick="getMore()"><div id="more">展开获取更多</div><div>
+  </div>
 </div>
     </div>
   </div>
@@ -216,14 +272,15 @@
   <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
   <script type="text/javascript">  
   var nowdate;
+  var ismore = 0;
    console.log(window.innerWidth);
    function toQRcode () {
-    javascript:window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa2d6685113b9923e&redirect_uri=http%3A%2F%2Fsharex.dingjiantaoke.cn%2Fle%2Fshow%2F23&response_type=code&scope=snsapi_base&state=7f31c90bd0aed7b49d00ba5d62dbccc0#wechat_redirect"
+    javascript:window.location.href="http://sharex.dingjiantaoke.cn/le/show/21"
    }
 
    function disp_confirm() {
      weui.alert('课程内容较长，请添加课程老师进入正式班级免费学习哦',function(){
-window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa2d6685113b9923e&redirect_uri=http%3A%2F%2Fsharex.dingjiantaoke.cn%2Fle%2Fshow%2F23&response_type=code&scope=snsapi_base&state=7f31c90bd0aed7b49d00ba5d62dbccc0#wechat_redirect" 
+window.location.href="http://sharex.dingjiantaoke.cn/le/show/21" 
      });
      
    }
@@ -244,6 +301,52 @@ window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=
         //     break;
         // }
       }
+
+  function getMore() {
+    if(ismore == 0){
+      document.getElementById('more').innerHTML = "收起";
+      var _div = document.getElementById('more_content');
+      _div.innerHTML=`<p>第二天带宝宝去检查，说是积食。开了点消食助消化的，回到家熬了点粥，
+      孩子还是一口没喝，奶粉也不喝，急死人了。到了晚上孩子开始发烧了，偶尔有点咳嗽但不频繁。
+      舌苔厚腻，有口臭，睡觉有点鼻塞。怕孩子晚上严重，晚上我抱着宝宝睡，自己睡不好，宝宝也睡不好，
+      个中辛苦无法言语！接下来是反复的发烧，虽然能简单吃点东西了，但是胃口与之前相差太远了，孩子也
+      没什么精神。之前吃过饭就拉着爷爷出去玩去了，但是看下现在孩子焉了一样，就特地请假在家照顾宝宝，
+      去检查说是因积食导致的发烧，孩子腹胀吃不下饭，用过消食助消化的，用过益生菌也做过推拿，但是无济
+      于事孩子也仅仅勉强吃一点点，整整折磨了三个多礼拜。这是一部斗争史，更是一部辛酸史。</p>
+      <image src="./1.jpg" style="width:100%;"></image>
+      <p>了孩子最爱吃的饭菜，也是提不起一点胃口，好说歹说才算是尝了一口……</p>
+ 
+      <p>曾经我走过很多弯路，在网上各种方法、益生菌、推拿按摩等等都试过，从几十元到上千，
+      可是也仅仅是让孩子勉强吃一点点，想恢复到原来的胃口真的是很难。。</p>
+      <p>为了宝宝积食厌食花了很多冤枉钱不说，还让宝宝很受罪、受折磨，我真是很心痛！</p>
+      </p>经过三个礼拜的苦苦寻觅，朋友给我介绍了这个育儿百科的课程，介绍才知道积食发烧是
+      积食没排出来，邪热也没排出来。积食发烧被退热，积食没排，那脾胃就是没恢复，没法正常消
+      化吸收。这里的不消化就是常见的脾胃虚弱。她的专业让我重新有了希望，开始根据她告诉的方法，
+      没想到一次偶然的信任，彻底改变了我家宝宝受尽的折磨。</p>
+      <image src="./2.jpg" style="width:100%;"></image>
+      <p>为了让孩子快点好起来，全家坚持了3个礼拜的清淡饮食，根据莉莉交代的我对孩子也做了忌口，
+      肉类、蛋类、奶类通通远离，莉莉交代孩子脾胃虚弱建议多喝点粥养养，那段时间我和孩子体重都降下来了，
+      事后老公还开玩笑说我成功减肥了。
+      看到孩子日渐消瘦的脸，我心里特别难受，那段时间都不敢带孩子出门。</p>
+      <image src="./3.jpg" style="width:100%;"></image>
+      <p>根据课程老师的指导，就明显感觉不一样了，孩子胃口明显感觉好了起来，
+      厌食也没以前那么重了，而且积食也开始好起来了，大便也开始正常了。</p>
+      <image src="./4.jpg" style="width:100%;"></image>
+      <image src="./5.jpg" style="width:100%;"></image>
+      <image src="./6.jpg" style="width:100%;"></image>
+      <p>经过3周的漫长煎熬，孩子调理恢复的很好，现在孩子吃饭能光盘了。
+      前两天带孩子出去吃饭看见锅巴就眼馋，上来一份自己全拿走了，看到孩子胃口好了，
+      我也很开心，但是我谨记莉莉的吩咐不能让孩子多吃，就没有让孩子多吃。</p>
+      `
+      ismore = 1;
+    } else {
+      document.getElementById('more').innerHTML = "展开获取更多";
+      var _div = document.getElementById('more_content');
+      _div.innerHTML = '';
+      ismore = 0;
+    }
+
+  }
 
    function getDate () {
      var date = new Date();
@@ -268,7 +371,8 @@ window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=
      this.getDate();
      var width = window.innerWidth;
      var _div = document.getElementById('vid');
-      _div.innerHTML='<img src="./title.png" style="width:100%;"/>'
+      _div.innerHTML='<img src="./title.png" style="width:100%;"/>';
+      document.getElementById("tabCon_" + 1).style.display = "none";
     // setTimeout(function() {
     //   _div.innerHTML='<img src="./poster.png" class="vid">'
     //   this.disp_confirm();
