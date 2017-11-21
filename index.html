@@ -347,7 +347,7 @@
    function getDate () {
      var date = new Date();
      var year = date.getFullYear();
-     var month = this.addZero(date.getMonth());
+     var month = this.addZero(date.getMonth()+1);
      var day = this.addZero(date.getDate());
 
      nowdate = year + '-'+month+ '-'+day;
