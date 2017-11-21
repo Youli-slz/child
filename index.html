@@ -195,6 +195,9 @@
     a{
       color: #000;
     }
+    #tabCon_1{
+      display: none;
+    }
 
   </style>
 </head>
@@ -208,7 +211,7 @@
     <div class="course">
       <div class="course_name" >育儿健康课堂</div>
       <!-- <div class="people">本期嘉宾: 古天乐</div> -->
-      <div class="time" id="time_one">时间 2017-11-14 20:00:00</div>
+      <div class="time" id="time_one">时间 2017-11-21</div>
     </div>
     <div class="course_price"><div class="price">￥199</div>&nbsp;&nbsp;&nbsp;(限时免费)</div>
     </div>
@@ -278,14 +281,10 @@
   <script type="text/javascript">  
   var nowdate;
   var ismore = 0;
-   console.log(window.innerWidth);
-  //  function toQRcode () {
-  //    self.location="http://sharex.dingjiantaoke.cn/le/show/21"
-  //  }
 
    function disp_confirm() {
      weui.alert('请添加课程老师进入正式班级免费学习哦',function(){
-         self.location="http://sharex.dingjiantaoke.cn/le/show/21" 
+         window.location.href=="http://sharex.dingjiantaoke.cn/le/show/21" 
      });
      
    }
@@ -297,14 +296,6 @@
         }
         document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层 
         document.getElementById("tab_" + tabCon_num).style.color = "#ff6767";
-        // switch (tabCon_num) {
-        //   case '0':
-        //     document.title = '代理';
-        //     break;
-        //   case '1':
-        //     document.title = '库存中心';
-        //     break;
-        // }
       }
 
   function getMore() {
@@ -360,7 +351,7 @@
      var day = this.addZero(date.getDate());
 
      nowdate = year + '-'+month+ '-'+day;
-    document.getElementById('time_one').innerHTML= '时间 '+ '  ' +  nowdate;
+     document.getElementById('time_one').innerHTML= '时间 '+ '  ' +  nowdate;
 
    }
 
@@ -372,17 +363,12 @@
      }
    }
 
-   function first () {
-    document.getElementById("tabCon_" + 1).style.display = "none";
+
+   window.onload=function(){
+      this.getDate();
       setTimeout(function() {
         this.disp_confirm();
       },30000)
-   }
-
-   window.onload=function(){
-      getDate();
-      first();
-
    }
 
   </script>
