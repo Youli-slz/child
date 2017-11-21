@@ -198,7 +198,9 @@
 <body>
   <div class="video_page" style="width:100%;margin-bottom:60px;">
      <!-- <video src="http://ugcbsy.qq.com/flv/245/220/l0348fhl31c.m701.mp4?vkey=61171E56D3A20A6050320E74397D866DC5990F7E40B88277954D9A4991171A38B9D3A60088360F2B00C893E7469C1016390B22E90B99424DD6496F70A1ECDF9702253DED83D5E502A5BC921A909C96FF7DD3624151A090E774F888B2136EC5B33CB8BEF7094FBF5F7603940E28C9E1AA502118655A246EF0&br=12&platform=2&fmt=auto&level=0&sdtfrom=v5010&guid=a774d180dd37cf7943f5c777a3ea2774"  class="vid" controls="controls" poster="./poster.png" ></video>  -->
-     <div id="vid"></div>
+     <div id="vid">
+       <img src="./title.png" style="width:100%;"/>
+     </div>
     <div class="course_info">
     <div class="course">
       <div class="course_name" >育儿健康课堂</div>
@@ -275,12 +277,12 @@
   var ismore = 0;
    console.log(window.innerWidth);
    function toQRcode () {
-    javascript:window.location.href="http://sharex.dingjiantaoke.cn/le/show/21"
+     window.location.href="http://sharex.dingjiantaoke.cn/le/show/21"
    }
 
    function disp_confirm() {
      weui.alert('请添加课程老师进入正式班级免费学习哦',function(){
-window.location.href="http://sharex.dingjiantaoke.cn/le/show/21" 
+         window.location.href="http://sharex.dingjiantaoke.cn/le/show/21" 
      });
      
    }
@@ -369,13 +371,10 @@ window.location.href="http://sharex.dingjiantaoke.cn/le/show/21"
 
    $(function() {
      this.getDate();
-     var width = window.innerWidth;
-     var _div = document.getElementById('vid');
-      _div.innerHTML='<img src="./title.png" style="width:100%;"/>';
       document.getElementById("tabCon_" + 1).style.display = "none";
-    setTimeout(function() {
-      this.disp_confirm();
-    },30000)
+    // setTimeout(function() {
+    //   this.disp_confirm();
+    // },30000)
 
    })
 
