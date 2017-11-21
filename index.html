@@ -94,7 +94,7 @@
       border-bottom: 1px solid #d0d0d0;
       height: 50px;
       font-size: 16px;
-      padding-left:10px;
+      /* padding-left:10px; */
        display: flex;
       display: -webkit-box;
       display: -webkit-flex;
@@ -138,6 +138,15 @@
       font-size:14px;
       margin-bottom: 5px;
     }
+    .btn-c{
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    .btn-c:nth-child(1){
+       border-right: 1px solid #949494;
+       color:#ff6767;
+    }
+
 
   </style>
 </head>
@@ -163,8 +172,12 @@
       </div>
     </div>
     <div class="info">
-      <div class="info_title">课程介绍</div>
-              <div><pre>也许现在家长们多数认为
+      <div class="info_title">
+        <div class="btn-c" id="tab_0" onclick="changeTab(0)">课程介绍</div>
+        <div class="btn-c" id="tab_1" onclick="changeTab(1)">林漪澜</div>
+      </div>
+      <div id="tabCon">
+              <div id="tabCon_0"><pre>也许现在家长们多数认为
 自己最重视孩子的营养问题。
 事实上，在这个问题上还存在一些误区。
 
@@ -189,8 +202,13 @@
 加入我们『育儿健康课堂』调理健康饮食，
 科普育儿知识，改善孩子体质，
 让孩子健康成长！</pre></div>
+
+<div id="tabCon_1">
+  零一页
+</div>
     </div>
   </div>
+
   <button class="attend_btn" onclick="toQRcode()">
     <div class="">立即免费报名<div>
   </button>
@@ -209,6 +227,23 @@ window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=
      });
      
    }
+      //改变tab页方法
+      function changeTab(tabCon_num) {
+        for (i = 0; i <= 1; i++) {
+          document.getElementById("tabCon_" + i).style.display = "none"; //将所有的层都隐藏 
+          document.getElementById("tab_" + i).style.color = "#000";
+        }
+        document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层 
+        document.getElementById("tab_" + tabCon_num).style.color = "#ff6767";
+        // switch (tabCon_num) {
+        //   case '0':
+        //     document.title = '代理';
+        //     break;
+        //   case '1':
+        //     document.title = '库存中心';
+        //     break;
+        // }
+      }
 
    function getDate () {
      var date = new Date();
